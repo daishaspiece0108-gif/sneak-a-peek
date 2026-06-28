@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Sneek-A-Peek Ultrasound Boutique</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --blush: #f8f0f0;
+            --dusty-rose: #d4a5a5;
+            --rose-deep: #b88383;
+            --sage: #a8b5a0;
+            --cream: #fdfbf7;
+            --warm-white: #fffcfc;
+            --charcoal: #3a3535;
+            --warm-gray: #7a6e6e;
+            --gold: #c9b18a;
+            --shadow-soft: 0 8px 32px rgba(180, 140, 140, 0.08);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--charcoal);
+            line-height: 1.8;
+            background: var(--warm-white);
+            font-weight: 400;
+        }
+        h1, h2, h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255,252,252,0.97);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212, 165, 165, 0.15);
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            color: var(--rose-deep);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-weight: 500;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--rose-deep); }
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--charcoal);
+        }
+        .page-header {
+            padding: 10rem 2rem 5rem;
+            text-align: center;
+            background: linear-gradient(160deg, var(--blush) 0%, var(--cream) 100%);
+        }
+        .page-header h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--charcoal);
+        }
+        .page-header p {
+            color: var(--warm-gray);
+            max-width: 600px;
+            margin: 1rem auto 0;
+            font-weight: 300;
+        }
+        .divider {
+            width: 50px;
+            height: 2px;
+            background: var(--gold);
+            margin: 1.5rem auto;
+        }
+        section { padding: 5rem 2rem; }
+        .container { max-width: 1100px; margin: 0 auto; }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+        .about-image-placeholder {
+            width: 100%;
+            aspect-ratio: 4/5;
+            background: linear-gradient(135deg, var(--blush) 0%, var(--cream) 100%);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--rose-deep);
+            font-size: 1.3rem;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid rgba(212, 165, 165, 0.2);
+        }
+        .about-content h2 {
+            font-size: 2.4rem;
+            margin-bottom: 1.5rem;
+            color: var(--charcoal);
+        }
+        .about-content p {
+            margin-bottom: 1.5rem;
+            color: var(--warm-gray);
+            font-weight: 300;
+        }
+        .credential-box {
+            background: linear-gradient(135deg, var(--blush) 0%, var(--cream) 100%);
+            border-left: 3px solid var(--dusty-rose);
+            padding: 2rem;
+            border-radius: 0 20px 20px 0;
+            margin: 2.5rem 0;
+        }
+        .credential-box h3 {
+            color: var(--rose-deep);
+            margin-bottom: 0.8rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        .credential-box p {
+            margin: 0;
+            color: var(--warm-gray);
+            font-size: 0.95rem;
+        }
+        footer {
+            background: var(--charcoal);
+            color: rgba(255,252,252,0.5);
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+        }
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: var(--warm-white);
+            margin-bottom: 0.5rem;
+        }
+        .footer-tagline {
+            color: var(--dusty-rose);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 1.5rem;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+        }
+        .footer-links a {
+            color: rgba(255,252,252,0.5);
+            text-decoration: none;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: color 0.3s;
+        }
+        .footer-links a:hover { color: var(--dusty-rose); }
+        .footer-bottom {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,252,252,0.08);
+            font-size: 0.8rem;
+            line-height: 1.8;
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--warm-white);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                box-shadow: var(--shadow-soft);
+            }
+            .nav-links.active { display: flex; }
+            .mobile-menu-btn { display: block; }
+            .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Sneek-A-Peek</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="packages.html">Packages</a></li>
+                <li><a href="policy.html">Policy</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <h1>About Us</h1>
+        <div class="divider"></div>
+        <p>A nurturing space built on expertise, compassion, and the joy of new beginnings</p>
+    </header>
+
+    <section>
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image-placeholder">
+                    [Photo of Ashley & Team]
+                </div>
+                <div class="about-content">
+                    <h2>Meet Ashley J. Rose, RDMS</h2>
+                    <p>Welcome to our little boutique — a place built on love, expertise, and the belief that every family deserves a beautiful beginning.</p>
+                    <p>With over 15 years of diagnostic medical sonography experience right here in Fredericksburg, I am honored to help you meet your little one before the big day arrives.</p>
+                    <p>Alongside my fellow registered sonographers, I promise to treat you with the same gentleness and care I would want for my own family.</p>
+                    
+                    <div class="credential-box">
+                        <h3>Verify Our Credentials</h3>
+                        <p>ARDMS Registry ID: <strong>138262</strong> — Board Certified since 2009.<br>Verify at <a href="https://www.ardms.org" target="_blank" style="color: var(--rose-deep);">www.ardms.org</a></p>
+                    </div>
+
+                    <p>When I'm not in the studio, I'm a blessed momma to two wonderful boys and our two yellow Labs, Stella and Skye. We can't wait to welcome your family into ours.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">Sneek-A-Peek</div>
+            <div class="footer-tagline">Fredericksburg's Finest Elective Ultrasound Boutique</div>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="packages.html">Packages</a>
+                <a href="policy.html">Policy</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-bottom">
+                <p>Owned & Operated by Board Certified, Licensed OB Sonographer | ARDMS #138262</p>
+                <p>Not a franchise. Not affiliated with any other 3D/4D Imaging Centers.</p>
+                <p style="margin-top: 1rem;">&copy; 2026 Sneek-A-Peek Ultrasound Boutique. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+    </script>
+
+</body>
+</html>
