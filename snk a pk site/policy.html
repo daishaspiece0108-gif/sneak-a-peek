@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Office Policy | Sneek-A-Peek Ultrasound Boutique</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --blush: #f8f0f0;
+            --dusty-rose: #d4a5a5;
+            --rose-deep: #b88383;
+            --sage: #a8b5a0;
+            --cream: #fdfbf7;
+            --warm-white: #fffcfc;
+            --charcoal: #3a3535;
+            --warm-gray: #7a6e6e;
+            --gold: #c9b18a;
+            --shadow-soft: 0 8px 32px rgba(180, 140, 140, 0.08);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--charcoal);
+            line-height: 1.8;
+            background: var(--warm-white);
+            font-weight: 400;
+        }
+        h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; }
+        nav {
+            position: fixed; top: 0; width: 100%;
+            background: rgba(255,252,252,0.97);
+            backdrop-filter: blur(20px); z-index: 1000;
+            border-bottom: 1px solid rgba(212, 165, 165, 0.15);
+        }
+        .nav-container {
+            max-width: 1200px; margin: 0 auto;
+            padding: 1.2rem 2rem;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem; color: var(--rose-deep);
+            text-decoration: none; font-weight: 600;
+        }
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+        .nav-links a {
+            text-decoration: none; color: var(--charcoal);
+            font-weight: 500; font-size: 0.8rem;
+            text-transform: uppercase; letter-spacing: 0.12em;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--rose-deep); }
+        .mobile-menu-btn {
+            display: none; background: none; border: none;
+            font-size: 1.5rem; cursor: pointer; color: var(--charcoal);
+        }
+        .page-header {
+            padding: 10rem 2rem 5rem; text-align: center;
+            background: linear-gradient(160deg, var(--blush) 0%, var(--cream) 100%);
+        }
+        .page-header h1 { font-size: clamp(2.5rem, 5vw, 4rem); color: var(--charcoal); }
+        .page-header p {
+            color: var(--warm-gray); max-width: 600px;
+            margin: 1rem auto 0; font-weight: 300;
+        }
+        .divider { width: 50px; height: 2px; background: var(--gold); margin: 1.5rem auto; }
+        section { padding: 5rem 2rem; }
+        .container { max-width: 1100px; margin: 0 auto; }
+        .policy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .policy-card {
+            background: linear-gradient(135deg, var(--blush) 0%, var(--cream) 100%);
+            padding: 2.5rem;
+            border-radius: 24px;
+            border: 1px solid rgba(212, 165, 165, 0.15);
+        }
+        .policy-card h3 {
+            color: var(--rose-deep);
+            margin-bottom: 1.2rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        .policy-card ul {
+            list-style: none;
+            color: var(--warm-gray);
+        }
+        .policy-card ul li {
+            padding: 0.5rem 0;
+            padding-left: 1.2rem;
+            position: relative;
+            font-weight: 300;
+            font-size: 0.95rem;
+        }
+        .policy-card ul li::before {
+            content: '•';
+            color: var(--dusty-rose);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        .disclaimer-box {
+            margin-top: 3.5rem;
+            background: var(--warm-white);
+            padding: 2.5rem;
+            border-radius: 24px;
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid rgba(212, 165, 165, 0.1);
+        }
+        .disclaimer-box h3 {
+            color: var(--rose-deep);
+            margin-bottom: 1.2rem;
+            font-size: 1.4rem;
+        }
+        .disclaimer-box p {
+            color: var(--warm-gray);
+            line-height: 1.9;
+            max-width: 800px;
+            margin: 0 auto;
+            font-weight: 300;
+            font-size: 0.95rem;
+        }
+        footer {
+            background: var(--charcoal);
+            color: rgba(255,252,252,0.5);
+            padding: 3rem 2rem 2rem; text-align: center;
+        }
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem; color: var(--warm-white); margin-bottom: 0.5rem;
+        }
+        .footer-tagline {
+            color: var(--dusty-rose); font-size: 0.85rem;
+            text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 1.5rem;
+        }
+        .footer-links {
+            display: flex; justify-content: center;
+            gap: 2rem; margin: 1.5rem 0; flex-wrap: wrap;
+        }
+        .footer-links a {
+            color: rgba(255,252,252,0.5); text-decoration: none;
+            font-size: 0.85rem; text-transform: uppercase;
+            letter-spacing: 0.1em; transition: color 0.3s;
+        }
+        .footer-links a:hover { color: var(--dusty-rose); }
+        .footer-bottom {
+            margin-top: 2rem; padding-top: 2rem;
+            border-top: 1px solid rgba(255,252,252,0.08);
+            font-size: 0.8rem; line-height: 1.8;
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; position: absolute; top: 100%; left: 0;
+                width: 100%; background: var(--warm-white);
+                flex-direction: column; padding: 2rem; gap: 1.5rem;
+                box-shadow: var(--shadow-soft);
+            }
+            .nav-links.active { display: flex; }
+            .mobile-menu-btn { display: block; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Sneek-A-Peek</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="packages.html">Packages</a></li>
+                <li><a href="policy.html">Policy</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <h1>Office Policy</h1>
+        <div class="divider"></div>
+        <p>Please review our guidelines prior to your visit so we can ensure a safe, serene experience for every family</p>
+    </header>
+
+    <section>
+        <div class="container">
+            <div class="policy-grid">
+                <div class="policy-card">
+                    <h3>🌿 Health & Safety</h3>
+                    <ul>
+                        <li>All guests must be in good health</li>
+                        <li>Please reschedule if you or any guest have flu-like symptoms or COVID exposure</li>
+                        <li>Maximum 6 people total (including mom)</li>
+                        <li>Children count as guests</li>
+                        <li>No switching guests in and out during the session</li>
+                    </ul>
+                </div>
+                <div class="policy-card">
+                    <h3>🕊️ Check-In Procedure</h3>
+                    <ul>
+                        <li>Send us a message via FB Messenger or text when you arrive</li>
+                        <li>Additional info will be on the front door</li>
+                        <li>Please do not call the office multiple times to check in</li>
+                        <li>Wait for our message indicating the office is clean and ready</li>
+                        <li>We sanitize all equipment and surfaces between guests</li>
+                    </ul>
+                </div>
+                <div class="policy-card">
+                    <h3>💫 Cancellations & Returns</h3>
+                    <ul>
+                        <li>Please provide 24 hours notice when cancelling</li>
+                        <li>No Call/No Show fee will be charged</li>
+                        <li>Free return visit if no images obtained due to baby's positioning</li>
+                        <li>Free return must be scheduled within 14 days of initial visit</li>
+                        <li>Return visits, First Peek & Later Peek sessions are NOT eligible for free returns</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="disclaimer-box">
+                <h3>Important Disclaimer</h3>
+                <p>Sneek-A-Peek Ultrasound Boutique is an <strong>ELECTIVE</strong> ultrasound imaging facility. All clients must establish prenatal care with an OB physician and have a diagnostic ultrasound completed prior to visiting. We do NOT perform diagnostic ultrasounds. If we have any concerns regarding your health or your baby's health, your OB/GYN will be notified promptly.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">Sneek-A-Peek</div>
+            <div class="footer-tagline">Fredericksburg's Finest Elective Ultrasound Boutique</div>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="packages.html">Packages</a>
+                <a href="policy.html">Policy</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-bottom">
+                <p>Owned & Operated by Board Certified, Licensed OB Sonographer | ARDMS #138262</p>
+                <p>Not a franchise. Not affiliated with any other 3D/4D Imaging Centers.</p>
+                <p style="margin-top: 1rem;">&copy; 2026 Sneek-A-Peek Ultrasound Boutique. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
