@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | Sneek-A-Peek Ultrasound Boutique</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         :root {
             --blush: #f8f0f0;
@@ -26,78 +27,45 @@
             background: var(--warm-white);
             font-weight: 400;
         }
-        h1, h2, h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 400;
-        }
+        h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; }
         nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
+            position: fixed; top: 0; width: 100%;
             background: rgba(255,252,252,0.97);
-            backdrop-filter: blur(20px);
-            z-index: 1000;
+            backdrop-filter: blur(20px); z-index: 1000;
             border-bottom: 1px solid rgba(212, 165, 165, 0.15);
         }
         .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
+            max-width: 1200px; margin: 0 auto;
             padding: 1.2rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            display: flex; justify-content: space-between; align-items: center;
         }
         .logo {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.6rem;
-            color: var(--rose-deep);
-            text-decoration: none;
-            font-weight: 600;
+            font-size: 1.6rem; color: var(--rose-deep);
+            text-decoration: none; font-weight: 600;
         }
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            list-style: none;
-        }
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
         .nav-links a {
-            text-decoration: none;
-            color: var(--charcoal);
-            font-weight: 500;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
+            text-decoration: none; color: var(--charcoal);
+            font-weight: 500; font-size: 0.8rem;
+            text-transform: uppercase; letter-spacing: 0.12em;
             transition: color 0.3s;
         }
         .nav-links a:hover { color: var(--rose-deep); }
         .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--charcoal);
+            display: none; background: none; border: none;
+            font-size: 1.5rem; cursor: pointer; color: var(--charcoal);
         }
         .page-header {
-            padding: 10rem 2rem 5rem;
-            text-align: center;
+            padding: 10rem 2rem 5rem; text-align: center;
             background: linear-gradient(160deg, var(--blush) 0%, var(--cream) 100%);
         }
-        .page-header h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            color: var(--charcoal);
-        }
+        .page-header h1 { font-size: clamp(2.5rem, 5vw, 4rem); color: var(--charcoal); }
         .page-header p {
-            color: var(--warm-gray);
-            max-width: 600px;
-            margin: 1rem auto 0;
-            font-weight: 300;
+            color: var(--warm-gray); max-width: 600px;
+            margin: 1rem auto 0; font-weight: 300;
         }
-        .divider {
-            width: 50px;
-            height: 2px;
-            background: var(--gold);
-            margin: 1.5rem auto;
-        }
+        .divider { width: 50px; height: 2px; background: var(--gold); margin: 1.5rem auto; }
         section { padding: 5rem 2rem; }
         .container { max-width: 1100px; margin: 0 auto; }
         .about-grid {
@@ -106,19 +74,16 @@
             gap: 5rem;
             align-items: center;
         }
-        .about-image-placeholder {
+        .about-image {
             width: 100%;
-            aspect-ratio: 4/5;
-            background: linear-gradient(135deg, var(--blush) 0%, var(--cream) 100%);
             border-radius: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Cormorant Garamond', serif;
-            color: var(--rose-deep);
-            font-size: 1.3rem;
+            overflow: hidden;
             box-shadow: var(--shadow-soft);
             border: 1px solid rgba(212, 165, 165, 0.2);
+        }
+        .about-image img {
+            width: 100%;
+            display: block;
         }
         .about-content h2 {
             font-size: 2.4rem;
@@ -186,6 +151,21 @@
             transition: color 0.3s;
         }
         .footer-links a:hover { color: var(--dusty-rose); }
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .footer-social a {
+            color: rgba(255,252,252,0.5);
+            font-size: 1.5rem;
+            transition: color 0.3s, transform 0.3s;
+        }
+        .footer-social a:hover {
+            color: var(--dusty-rose);
+            transform: translateY(-3px);
+        }
         .footer-bottom {
             margin-top: 2rem;
             padding-top: 2rem;
@@ -195,15 +175,9 @@
         }
         @media (max-width: 768px) {
             .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: var(--warm-white);
-                flex-direction: column;
-                padding: 2rem;
-                gap: 1.5rem;
+                display: none; position: absolute; top: 100%; left: 0;
+                width: 100%; background: var(--warm-white);
+                flex-direction: column; padding: 2rem; gap: 1.5rem;
                 box-shadow: var(--shadow-soft);
             }
             .nav-links.active { display: flex; }
@@ -213,7 +187,6 @@
     </style>
 </head>
 <body>
-
     <nav>
         <div class="nav-container">
             <a href="index.html" class="logo">Sneek-A-Peek</a>
@@ -237,8 +210,8 @@
     <section>
         <div class="container">
             <div class="about-grid">
-                <div class="about-image-placeholder">
-                    [Photo of Ashley & Team]
+                <div class="about-image">
+                    <img src="ashley.jpg" alt="Ashley J. Rose, RDMS">
                 </div>
                 <div class="about-content">
                     <h2>Meet Ashley J. Rose, RDMS</h2>
@@ -268,6 +241,10 @@
                 <a href="policy.html">Policy</a>
                 <a href="contact.html">Contact</a>
             </div>
+            <div class="footer-social">
+                <a href="https://www.facebook.com/1.sneek.a.peek.1" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/sneekapeek_boutique/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
             <div class="footer-bottom">
                 <p>Owned & Operated by Board Certified, Licensed OB Sonographer | ARDMS #138262</p>
                 <p>Not a franchise. Not affiliated with any other 3D/4D Imaging Centers.</p>
@@ -286,6 +263,5 @@
             });
         });
     </script>
-
 </body>
 </html>
