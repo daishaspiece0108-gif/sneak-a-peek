@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Packages | Sneek-A-Peek Ultrasound Boutique</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --blush: #f8f0f0;
+            --dusty-rose: #d4a5a5;
+            --rose-deep: #b88383;
+            --sage: #a8b5a0;
+            --cream: #fdfbf7;
+            --warm-white: #fffcfc;
+            --charcoal: #3a3535;
+            --warm-gray: #7a6e6e;
+            --gold: #c9b18a;
+            --shadow-soft: 0 8px 32px rgba(180, 140, 140, 0.08);
+            --shadow-hover: 0 12px 40px rgba(180, 140, 140, 0.15);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--charcoal);
+            line-height: 1.8;
+            background: var(--warm-white);
+            font-weight: 400;
+        }
+        h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; }
+        nav {
+            position: fixed; top: 0; width: 100%;
+            background: rgba(255,252,252,0.97);
+            backdrop-filter: blur(20px); z-index: 1000;
+            border-bottom: 1px solid rgba(212, 165, 165, 0.15);
+        }
+        .nav-container {
+            max-width: 1200px; margin: 0 auto;
+            padding: 1.2rem 2rem;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem; color: var(--rose-deep);
+            text-decoration: none; font-weight: 600;
+        }
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+        .nav-links a {
+            text-decoration: none; color: var(--charcoal);
+            font-weight: 500; font-size: 0.8rem;
+            text-transform: uppercase; letter-spacing: 0.12em;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--rose-deep); }
+        .mobile-menu-btn {
+            display: none; background: none; border: none;
+            font-size: 1.5rem; cursor: pointer; color: var(--charcoal);
+        }
+        .page-header {
+            padding: 10rem 2rem 5rem; text-align: center;
+            background: linear-gradient(160deg, var(--blush) 0%, var(--cream) 100%);
+        }
+        .page-header h1 { font-size: clamp(2.5rem, 5vw, 4rem); color: var(--charcoal); }
+        .page-header p {
+            color: var(--warm-gray); max-width: 600px;
+            margin: 1rem auto 0; font-weight: 300;
+        }
+        .divider { width: 50px; height: 2px; background: var(--gold); margin: 1.5rem auto; }
+        section { padding: 5rem 2rem; }
+        .container { max-width: 1100px; margin: 0 auto; }
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .package-card {
+            background: var(--warm-white);
+            border-radius: 24px; padding: 2.5rem;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.4s;
+            border: 1px solid rgba(212, 165, 165, 0.1);
+        }
+        .package-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+        .package-card.featured {
+            border: 2px solid var(--dusty-rose);
+            background: linear-gradient(180deg, var(--warm-white) 0%, var(--blush) 100%);
+        }
+        .package-card.featured::before {
+            content: 'Most Loved';
+            position: absolute; top: 1.2rem; right: -2.8rem;
+            background: var(--dusty-rose); color: var(--warm-white);
+            padding: 0.4rem 3rem; font-size: 0.7rem; font-weight: 600;
+            text-transform: uppercase; transform: rotate(45deg);
+        }
+        .package-card { position: relative; overflow: hidden; }
+        .package-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem; margin-bottom: 0.5rem; color: var(--charcoal);
+        }
+        .package-price {
+            font-size: 2.5rem; font-weight: 600;
+            color: var(--rose-deep); margin-bottom: 1.5rem;
+            font-family: 'Cormorant Garamond', serif;
+        }
+        .package-features { list-style: none; margin-bottom: 2rem; }
+        .package-features li {
+            padding: 0.7rem 0;
+            border-bottom: 1px solid rgba(212, 165, 165, 0.15);
+            color: var(--warm-gray);
+            display: flex; align-items: flex-start; gap: 0.75rem;
+            font-size: 0.95rem; font-weight: 300;
+        }
+        .package-features li::before {
+            content: '✓'; color: var(--sage); font-weight: 700; flex-shrink: 0;
+        }
+        .package-note {
+            font-size: 0.85rem; color: var(--warm-gray);
+            font-style: italic; margin-top: 1rem; padding-top: 1rem;
+            border-top: 1px dashed rgba(212, 165, 165, 0.3);
+        }
+        .addons-box {
+            text-align: center; margin-top: 3rem;
+            padding: 2.5rem; background: var(--warm-white);
+            border-radius: 24px; box-shadow: var(--shadow-soft);
+        }
+        .addons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem; text-align: left; color: var(--warm-gray);
+            font-size: 0.9rem; font-weight: 300;
+        }
+        .discount-box {
+            text-align: center; margin-top: 2.5rem;
+        }
+        footer {
+            background: var(--charcoal);
+            color: rgba(255,252,252,0.5);
+            padding: 3rem 2rem 2rem; text-align: center;
+        }
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem; color: var(--warm-white); margin-bottom: 0.5rem;
+        }
+        .footer-tagline {
+            color: var(--dusty-rose); font-size: 0.85rem;
+            text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 1.5rem;
+        }
+        .footer-links {
+            display: flex; justify-content: center;
+            gap: 2rem; margin: 1.5rem 0; flex-wrap: wrap;
+        }
+        .footer-links a {
+            color: rgba(255,252,252,0.5); text-decoration: none;
+            font-size: 0.85rem; text-transform: uppercase;
+            letter-spacing: 0.1em; transition: color 0.3s;
+        }
+        .footer-links a:hover { color: var(--dusty-rose); }
+        .footer-bottom {
+            margin-top: 2rem; padding-top: 2rem;
+            border-top: 1px solid rgba(255,252,252,0.08);
+            font-size: 0.8rem; line-height: 1.8;
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; position: absolute; top: 100%; left: 0;
+                width: 100%; background: var(--warm-white);
+                flex-direction: column; padding: 2rem; gap: 1.5rem;
+                box-shadow: var(--shadow-soft);
+            }
+            .nav-links.active { display: flex; }
+            .mobile-menu-btn { display: block; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Sneek-A-Peek</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="packages.html">Packages</a></li>
+                <li><a href="policy.html">Policy</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <h1>Our Packages</h1>
+        <div class="divider"></div>
+        <p>All imaging includes 2D/3D/4D & HD Live. Gender determination available at 15+ weeks with any package (except First Peek).</p>
+    </header>
+
+    <section>
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 2.5rem; font-size: 1.8rem;">Single Visit Sessions</h2>
+            <div class="packages-grid">
+                <div class="package-card">
+                    <div class="package-name">First Peek</div>
+                    <div class="package-price">$90</div>
+                    <ul class="package-features">
+                        <li>9 weeks to 13 weeks</li>
+                        <li>2D/3D/4D/HD Single Session</li>
+                        <li>Online Gallery with 10+ Digital Images</li>
+                        <li>2 Premium Prints</li>
+                    </ul>
+                    <p class="package-note">Gender determination not included</p>
+                </div>
+                <div class="package-card featured">
+                    <div class="package-name">Sneek Peek</div>
+                    <div class="package-price">$120</div>
+                    <ul class="package-features">
+                        <li>14 weeks and up</li>
+                        <li>2D/3D/4D/HD Single Session</li>
+                        <li>Online Gallery with 10+ Digital Images</li>
+                        <li>3 Premium Prints</li>
+                        <li>Gender Determination upon request</li>
+                    </ul>
+                </div>
+                <div class="package-card">
+                    <div class="package-name">Keepsake Package</div>
+                    <div class="package-price">$170</div>
+                    <ul class="package-features">
+                        <li>2D/3D/4D/HD Single Session</li>
+                        <li>Online Gallery with 10+ Digital Images</li>
+                        <li>USB Drive with Digital Images & Video</li>
+                        <li>Video recorded to lullaby music</li>
+                        <li>3 Premium Prints</li>
+                        <li>Premium Heartbeat Animal with Live Recording</li>
+                    </ul>
+                </div>
+                <div class="package-card">
+                    <div class="package-name">Later Peek</div>
+                    <div class="package-price">$100</div>
+                    <ul class="package-features">
+                        <li>35 weeks and up</li>
+                        <li>2D/3D/4D/HD Single Session</li>
+                        <li>Online Gallery with 10+ Digital Images</li>
+                        <li>2 Premium Prints</li>
+                        <li>Estimated Fetal Weight/Measurements</li>
+                    </ul>
+                    <p class="package-note">May be limited due to gestational age. Not eligible for free return.</p>
+                </div>
+            </div>
+
+            <h2 style="text-align: center; margin: 4rem 0 2.5rem; font-size: 1.8rem;">Packages with Return Visits</h2>
+            <div class="packages-grid" style="max-width: 800px; margin: 0 auto;">
+                <div class="package-card">
+                    <div class="package-name">Watch Me Grow</div>
+                    <div class="package-price">$165</div>
+                    <ul class="package-features">
+                        <li>2D/3D/4D/HD Live Session</li>
+                        <li>Online Gallery with 10+ Digital Images</li>
+                        <li>USB Drive with Images & Video to lullaby music</li>
+                        <li>3 Premium Prints</li>
+                        <li><strong>Unlimited $40 Return Visits</strong></li>
+                    </ul>
+                </div>
+                <div class="package-card featured">
+                    <div class="package-name">Beat of My Heart</div>
+                    <div class="package-price">$250</div>
+                    <ul class="package-features">
+                        <li>2D/3D/4D/HD Live Session</li>
+                        <li>Online Gallery with 10+ Digital Images</li>
+                        <li>USB Drive with Images & Video to lullaby music</li>
+                        <li>3 Premium Prints</li>
+                        <li>Premium Heartbeat Animal with Live Recording</li>
+                        <li>10% Off Custom Heartbeat Jewelry & Keepsakes</li>
+                        <li><strong>Unlimited $40 Return Visits</strong></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="addons-box">
+                <h3 style="margin-bottom: 1.5rem; color: var(--rose-deep); font-size: 1.4rem;">A La Carte Add-Ons</h3>
+                <div class="addons-grid">
+                    <div>• New Flash Drive (Images or Video): $30 / Both: $40</div>
+                    <div>• Existing Flash Drive Add-On: $15–$30</div>
+                    <div>• Online Gallery (All Images): $20</div>
+                    <div>• Premium 4x6 Prints: $4 each or 3 for $10</div>
+                    <div>• Heartbeat Animals/Frames: $45–$50</div>
+                    <div>• Heartbeat Recorder: $25</div>
+                    <div>• Fetal Weight/Measurements: $25</div>
+                </div>
+                <p style="margin-top: 1.5rem; font-size: 0.85rem; color: var(--warm-gray); font-style: italic; font-weight: 300;">Custom Heartbeat Jewelry available — contact us for pricing. Please allow 3–4 weeks for delivery.</p>
+            </div>
+
+            <div class="discount-box">
+                <p style="color: var(--rose-deep); font-weight: 600; font-size: 0.9rem;">🎖️ Hero Discount: 10% OFF for Military, Law Enforcement, Firefighters, EMT, Medical Personnel & Teachers</p>
+                <p style="margin-top: 0.5rem; color: var(--warm-gray); font-size: 0.85rem; font-weight: 300;">Mention ARDMS #138262 at checkout for an additional $5 off</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">Sneek-A-Peek</div>
+            <div class="footer-tagline">Fredericksburg's Finest Elective Ultrasound Boutique</div>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="packages.html">Packages</a>
+                <a href="policy.html">Policy</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-bottom">
+                <p>Owned & Operated by Board Certified, Licensed OB Sonographer | ARDMS #138262</p>
+                <p>Not a franchise. Not affiliated with any other 3D/4D Imaging Centers.</p>
+                <p style="margin-top: 1rem;">&copy; 2026 Sneek-A-Peek Ultrasound Boutique. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
